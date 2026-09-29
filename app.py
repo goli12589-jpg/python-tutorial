@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, render_template_string
 import sqlite3
 import os
 
-app = Flask(name)
+app = Flask(__name__)
 
 DATABASE = "store.db"
 
@@ -231,7 +231,7 @@ def sell():
     return redirect("/")
 
 
-if name == "main":
+if __name__ == "__main__":
     init_db()
 
     port = int(os.environ.get("PORT", 5000))
